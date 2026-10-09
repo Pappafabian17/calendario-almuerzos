@@ -38,8 +38,8 @@ function isOver(date, meal) {
 const compName = (id) => missionaries.find((c) => c.id === id)?.name || '';
 const barrioName = (id) => barrios.find((b) => b.id === id)?.name || '';
 // Quien puede gestionar el barrio seleccionado (cancelar, bloquear días, cargar misioneros).
-const canManage = () => me.role === 'admin' || (me.role === 'leader' && me.barrioId === barrioId);
-const canSeePrivate = () => canManage() || (me.role === 'missionary' && me.barrioId === barrioId);
+const canManage = () => me.role === 'admin' || (me.role === 'leader' && (me.all || me.barrioId === barrioId));
+const canSeePrivate = () => canManage() || (me.role === 'missionary' && (me.all || me.barrioId === barrioId));
 
 async function api(method, url, body) {
   const res = await fetch(url, {

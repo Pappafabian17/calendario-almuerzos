@@ -19,7 +19,8 @@ npm start                  # http://localhost:3000 (usa el archivo almuerzos.db)
    (Las tablas se crean solas la primera vez.)
 2. **Sube el proyecto a GitHub** y en Netlify: *Add new site → Import from Git*. No hace falta comando de build; `netlify.toml` ya define `public/` y las funciones.
 3. En Netlify → *Site configuration → Environment variables* agrega:
-   `DATABASE_URL`, `DATABASE_AUTH_TOKEN`, `ADMIN_PASSWORD`, `TIMEZONE` (ej. `America/Mexico_City`).
+   `ADMIN_PASSWORD`, `LEADER_CODE`, `MISSIONARY_CODE`, `TIMEZONE` (ej. `America/Argentina/Buenos_Aires`), `DATABASE_URL` y `DATABASE_AUTH_TOKEN`.
+   Para cambiar una clave o un código basta con editar la variable en Netlify y volver a desplegar (*Deploys → Trigger deploy*).
 4. Haz *Deploy*.
 
 ## Roles
@@ -31,6 +32,8 @@ Se entra con «Acceso» y un código. Sin código, cualquiera puede anotarse.
 | Misioneros | código de misioneros del barrio | Además ve teléfono, dirección y mapa de las familias de su barrio |
 | Líder | código de líder del barrio | Lo anterior + editar y eliminar registros, bloquear días, cargar/quitar misioneros de su barrio y recordar por WhatsApp |
 | Administrador | `ADMIN_PASSWORD` | Todo, incluido crear/editar/eliminar barrios y sus códigos, y editar el título y los horarios |
+
+`LEADER_CODE` y `MISSIONARY_CODE` (variables de entorno) valen para **todos** los barrios. Además, cada barrio puede tener sus propios códigos (los define el administrador en «Gestión»).
 
 Primer uso: entra con la contraseña de administrador → «Gestión» → crea los barrios (con sus dos códigos) → carga los misioneros.
 
