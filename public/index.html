@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1b6bb5">
+  <title>Comidas para los misioneros</title>
+  <script>try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <h1 id="title">Comidas para los misioneros</h1>
+      <div class="actions">
+        <button id="themeBtn" aria-label="Cambiar entre modo claro y oscuro" title="Modo claro / oscuro"></button>
+        <button id="manageBtn" hidden>Gestión</button>
+        <button id="loginBtn">Acceso</button>
+      </div>
+    </div>
+    <p id="info"></p>
+    <div class="pickers">
+      <div class="sel">
+        <label for="barrio">Barrio</label>
+        <select id="barrio"></select>
+      </div>
+      <div class="sel" id="compWrap" hidden>
+        <label for="comp">Compañerismo</label>
+        <select id="comp"></select>
+      </div>
+    </div>
+    <p id="missionaries" class="meta"></p>
+  </header>
+
+  <main>
+    <p id="empty" class="notice" hidden>Todavía no hay barrios cargados. El administrador debe crearlos desde «Acceso» → «Gestión».</p>
+    <div id="calendar">
+      <section id="banner" class="banner" aria-live="polite"></section>
+      <div class="toolbar">
+        <button id="prev" class="nav" aria-label="Mes anterior">‹</button>
+        <h2 id="monthLabel"></h2>
+        <button id="next" class="nav" aria-label="Mes siguiente">›</button>
+        <button id="today">Hoy</button>
+      </div>
+      <div class="viewtoggle" role="group" aria-label="Tipo de vista">
+        <button id="vDetail" type="button" aria-pressed="true">Detalle</button>
+        <button id="vMonth" type="button" aria-pressed="false">Mes completo</button>
+      </div>
+      <p id="printHead" class="print-head"></p>
+      <div class="grid weekdays">
+        <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+      </div>
+      <div id="grid" class="grid days"><p class="loading">Cargando…</p></div>
+      <p class="legend">
+        <span><i class="dot free"></i>Libre</span>
+        <span><i class="dot taken"></i>Ocupado</span>
+        <span><i class="dot blocked"></i>No disponible</span>
+      </p>
+      <div class="footer-actions"><button id="print">Imprimir lista del mes</button></div>
+    </div>
+  </main>
+
+  <dialog id="dlg">
+    <form id="form">
+      <h3 id="dlgTitle"></h3>
+      <div id="dlgBody"></div>
+      <p id="err" class="error" hidden></p>
+      <menu id="dlgActions"></menu>
+    </form>
+  </dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
