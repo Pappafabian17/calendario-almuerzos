@@ -470,8 +470,8 @@ function openTaken(title, date, meal, m, barrioLine) {
 function openLogin() {
   if (me.role !== 'public') {
     return show('Sesión', [el('p', {}, `Ingresaste como ${ROLE_LABEL[me.role]}${me.barrioId ? ' del barrio ' + barrioName(me.barrioId) : ''}.`)], [
-      btn('Cerrar sesión', async () => { code = ''; store.set('code', ''); me = { role: 'public', barrioId: null }; close(); renderSession(); await refresh(); }),
       closeBtn(),
+      btn('Cerrar sesión', async () => { code = ''; store.set('code', ''); me = { role: 'public', barrioId: null }; close(); renderSession(); await refresh(); }, 'danger'),
     ]);
   }
   const input = field('Código de acceso', 'code', { type: 'password', autocomplete: 'off' });

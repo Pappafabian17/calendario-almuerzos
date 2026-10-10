@@ -221,6 +221,12 @@ menu { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px; padd
   main { padding: 0 12px 40px; }
   header { padding-bottom: 18px; }
   h1 { font-size: 1.3rem; }
+  /* Encabezado: el título arriba y los botones (tema, gestión, sesión) en su propia fila, que se reparte el ancho */
+  .topbar { flex-wrap: wrap; gap: 10px; }
+  .topbar h1 { flex: 1 1 100%; }
+  .actions { flex: 1 1 100%; flex-wrap: wrap; }
+  .actions button { flex: 1 1 auto; max-width: none; min-height: 44px; }
+  .actions #themeBtn { flex: 0 0 auto; min-width: 48px; }
   .toolbar { margin: 0 -12px; padding: 10px 12px 8px; }
   .weekdays, .day.empty { display: none; }
   #calendar[data-view="mes"] .weekdays { display: grid; }
